@@ -1,6 +1,14 @@
-﻿namespace CharityHub.ViewModels
+﻿using CharityHub.ViewModels.AuthentificationViewModels;
+
+namespace CharityHub.ViewModels
 {
-    internal class MainViewModel
+    public class MainViewModel : ViewModelBase
     {
+        public ViewModelBase CurrentViewModel { get; }
+
+        public MainViewModel()
+        {
+            CurrentViewModel = new LoginViewModel();
+        }
     }
 }

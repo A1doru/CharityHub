@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace CharityHub.Views.LoginPages
 {
     /// <summary>
-    /// Interaction logic for WelcomePage.xaml
+    /// Interaction logic for WelcomeView.xaml
     /// </summary>
-    public partial class WelcomePage : Page
+    public partial class WelcomeView : UserControl
     {
-        public WelcomePage()
+        public WelcomeView()
         {
             InitializeComponent();
         }

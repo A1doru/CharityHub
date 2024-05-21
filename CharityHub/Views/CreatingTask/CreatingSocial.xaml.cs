@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CharityHub
+namespace CharityHub.Views.CreatingTask
 {
     /// <summary>
-    /// Interaction logic for MyWindow.xaml
+    /// Interaction logic for CreatingSocial.xaml
     /// </summary>
-    public partial class MyWindow : Window
+    public partial class CreatingSocial : UserControl
     {
-        public MyWindow()
+        public CreatingSocial()
         {
             InitializeComponent();
         }

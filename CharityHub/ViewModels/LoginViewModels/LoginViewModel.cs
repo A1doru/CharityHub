@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CharityHub.ViewModels.AuthentificationViewModels
+﻿namespace CharityHub.ViewModels.AuthentificationViewModels
 {
     public class LoginViewModel : ViewModelBase
     {
         private string _email;
+
         public string Email
         {
             get { return _email; }
@@ -20,6 +15,7 @@ namespace CharityHub.ViewModels.AuthentificationViewModels
         }
 
         private string _password;
+
         public string Password
         {
             get
@@ -31,6 +27,6 @@ namespace CharityHub.ViewModels.AuthentificationViewModels
                 _password = value;
                 OnPropertyChanged(nameof(Password));
             }
-        }       
+        }
     }
 }

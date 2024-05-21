@@ -10,7 +10,7 @@ namespace CharityHub
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            MainWindow = new MyWindow()
+            MainWindow = new MainWindow()
             {
                 DataContext = new MainViewModel()
             };
@@ -18,7 +18,6 @@ namespace CharityHub
 
             base.OnStartup(e);
         }
-
     }
 
 }

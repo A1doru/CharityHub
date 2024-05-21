@@ -5,31 +5,48 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CharityHub.Views.LoginPages"
              mc:Ignorable="d" 
-             d:Height="900"
-             d:Width="800"
+             d:Height="800"
+             d:Width="900"
              HorizontalAlignment="Stretch"
-             VerticalAlignment="Stretch">
-    <Grid Background="#FFC8E6B9" >
-        <Image Source="C:\Users\Danil\source\repos\CharityHub\CharityHub\StaticResources\LogoSmall.png" 
-               Width="170" Height="170" 
-               VerticalAlignment="Top" 
-               HorizontalAlignment="Center"/>
-        <Border  Background="#FF4D4D4D" BorderThickness="0" CornerRadius="90" Margin="100,150,100,10">
-            <Grid >
-                <TextBlock Text="Login" Margin="75,10,75,590"  
-                           FontFamily="Microsoft YaHei" 
-                           FontSize="92" 
-                           TextAlignment="Center" 
-                           Foreground="#FF22B573" />
-                <StackPanel Orientation="Vertical" 
-                            HorizontalAlignment="Center" 
-                            VerticalAlignment="Center">
-                    <TextBlock Text="Enter your email" FontSize="15" HorizontalAlignment="Center"/>
-                    <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Width="200" Height="20" Margin="10"/>
-                    <TextBlock Text="Enter your password" FontSize="15" HorizontalAlignment="Center"/>
-                    <TextBox Width="200" Height="20" Margin="10"/>
-                    <Button Content="Login" Height="25" Width="100" Margin="30" />
+             VerticalAlignment="Stretch"
+             Background="#CCFFCC">
+
+
+    <Grid>
+        <!-- Logo -->
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0">
+            <Image Source="C:\Users\Danil\source\repos\CharityHub\CharityHub\StaticResources\LogoSmall.png" Height="150" Width="150" />
+        </StackPanel>
+
+        <!-- Sign Up box -->
+        <Border Background="#333333" CornerRadius="20" Padding="20"  VerticalAlignment="Top" Width="400" Height="450" Margin="250,175,250,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Back Button -->
+                <Button Content="&#x2190;" FontSize="24" Width="40" Height="40" Background="Transparent" Foreground="White" BorderBrush="Transparent"
+                        HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"/>
+
+                <!-- Sign Up Text -->
+                <TextBlock Text="Login" FontSize="36" FontWeight="Bold" Foreground="#00CC66" HorizontalAlignment="Center" Margin="0,20,0,20" Grid.Row="0"/>
+
+                <!-- Input Fields -->
+                <StackPanel Grid.Row="1" VerticalAlignment="Center">
+                    <TextBlock Text="Email" FontSize="18"  Foreground="White" Margin="30,10,0,5"/>
+                    <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Width="300" Height="30" Background="Transparent" BorderBrush="#00CC66" Foreground="White"/>
+
+                    <TextBlock Text="Password" FontSize="18"  Foreground="White" Margin="30,10,0,5"/>
+                    <TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Width="300" Height="30" Background="Transparent" BorderBrush="#00CC66" Foreground="White"/>
+
                 </StackPanel>
+
+                <!-- Next Button -->
+                <Button Content="Next" Width="100" Height="40" Background="#00CC66" Foreground="White" Margin="0,20,0,0"
+                        HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="2"/>
             </Grid>
         </Border>
     </Grid>

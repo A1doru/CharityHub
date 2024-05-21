@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CharityHub.ViewModels.AuthentificationViewModels
+namespace CharityHub.Commands.LoginCommands
 {
-    public class SignUpViewModel : ViewModelBase
+    internal class SignUpNavCommand
     {
-
     }
 }

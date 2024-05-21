@@ -1,15 +1,26 @@
-﻿namespace CharityHub.Models.Users
+﻿using CharityHub.Shared;
+
+namespace CharityHub.Models.Users
 {
     class Volunteer : User
     {
-        internal override User GetUser()
+        public override User GetUser()
         {
-            throw new NotImplementedException();
+            return this;
         }
 
         internal override User GetUser(string id)
         {
             throw new NotImplementedException();
+        }
+
+        public Volunteer(string name, string email, string password)
+        {
+            this.Name = name;
+            this.Email = email;
+            this.Password = password;
+            this.Type = UserType.Volunteer;
+            this.CreatingDate = DateTime.Now;
         }
     }
 }

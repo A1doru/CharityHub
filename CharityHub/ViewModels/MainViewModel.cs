@@ -1,4 +1,5 @@
 ﻿using CharityHub.ViewModels.AuthentificationViewModels;
+using CharityHub.ViewModels.MainMenuViewModels;
 
 namespace CharityHub.ViewModels
 {
@@ -8,7 +9,7 @@ namespace CharityHub.ViewModels
 
         public MainViewModel()
         {
-            CurrentViewModel = new LoginViewModel();
+            CurrentViewModel = new WelcomeViewModel();
         }
     }
 }

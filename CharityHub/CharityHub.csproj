@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Shared\Exceptions\" />
-    <Folder Include="Shared\GlobalSettings\" />
+    <Folder Include="ViewModels\CreatingTaskViewModels\" />
+    <Folder Include="Views\TaskListing\" />
   </ItemGroup>
 
 </Project>

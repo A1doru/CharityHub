@@ -1,4 +1,5 @@
-﻿using CharityHub.ViewModels;
+﻿using CharityHub.DBtest;
+using CharityHub.ViewModels;
 using System.Windows;
 
 namespace CharityHub
@@ -10,6 +11,7 @@ namespace CharityHub
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+
             MainWindow = new MainWindow()
             {
                 DataContext = new MainViewModel()

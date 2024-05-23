@@ -1,6 +1,6 @@
 ﻿namespace CharityHub.Shared
 {
-    enum TaskType
+    public enum TaskType
     {
 
     }

@@ -1,28 +1,38 @@
-﻿using CharityHub.Shared;
+﻿using CharityHub.DBContext;
+using CharityHub.Shared;
 
 namespace CharityHub.Models.Users
 {
     class UserFactory
     {
-        public User CreateUser(UserType userType, string name, string email, string password)
+        UserContext newUserContext;
+        User newUser;
+
+        public User CreateUser(UserType userType, string name, string surname,string email, string password)
         {
-            if (userType == UserType.Admin)
+
+            if (userType == UserType.Volunteer)
             {
-                return new Admin(name, email, password);
-            }            
-            else if (userType == UserType.Volunteer)
-            {
-                return new Volunteer(name, email, password);
+                newUser = new Volunteer(name, surname, email, password);
             }            
             else if (userType == UserType.CharityOrgaisation)
             {
-                return new CharityOrganization(name, email, password);
+                newUser = new CharityOrganization(name, surname, email, password);
             }
             else
             {
-                return null; //нужно будет создать обработчик ошибки
+                newUser = null;
             }
 
+            newUserContext = new UserContext(newUser);
+
+            using(var context = new CharityHubDbContext())
+            {
+                context.Users.Add(newUserContext);
+                context.SaveChanges();
+            }
+
+            return newUser;
         }
     }
 }

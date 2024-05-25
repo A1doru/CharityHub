@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\CreatingTaskViewModels\" />
     <Folder Include="Views\TaskListing\" />
   </ItemGroup>
 

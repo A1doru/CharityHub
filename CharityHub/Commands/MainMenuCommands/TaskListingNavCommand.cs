@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CharityHub.Commands.LoginCommands
+namespace CharityHub.Commands.MainMenuCommands
 {
-    class LoginNavCommand : CommandBase
+    public class TaskListingNavCommand : CommandBase
     {
         public override void Execute(object? parameter)
         {

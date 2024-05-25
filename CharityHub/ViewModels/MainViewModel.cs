@@ -1,15 +1,24 @@
-﻿using CharityHub.ViewModels.AuthentificationViewModels;
+﻿using CharityHub.Navigation;
+using CharityHub.ViewModels.AuthentificationViewModels;
 using CharityHub.ViewModels.MainMenuViewModels;
 
 namespace CharityHub.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        public ViewModelBase CurrentViewModel { get; }
+        private NavigationStore _navigationStore;
 
-        public MainViewModel()
+        public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
+
+        public MainViewModel(NavigationStore navigationStore)
         {
-            CurrentViewModel = new WelcomeViewModel();
+            _navigationStore = navigationStore;
+            _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
+        }
+
+        private void OnCurrentViewModelChanged()
+        {
+            OnPropertyChanged(nameof(CurrentViewModel));
         }
     }
 }

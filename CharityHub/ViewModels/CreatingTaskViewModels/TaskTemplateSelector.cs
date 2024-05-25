@@ -1,9 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
-using TestConsole.TaskNew;
 
-namespace CharityHub.ViewModels.MainMenuViewModels
+
+namespace CharityHub.ViewModels.CreatingTaskViewModels
 {
     public class TaskTemplateSelector : DataTemplateSelector
     {
@@ -41,7 +40,7 @@ namespace CharityHub.ViewModels.MainMenuViewModels
     {
         public string ActivityName { get; set; }
         public string Duration { get; set; }
-       // public ICommand StartCommand { get; set; }
+        // public ICommand StartCommand { get; set; }
     }
 
     public class SocialActivity : TaskBase

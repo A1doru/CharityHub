@@ -1,4 +1,8 @@
-﻿namespace CharityHub.ViewModels.AuthentificationViewModels
+﻿using CharityHub.Commands.LoginCommands;
+using CharityHub.Navigation;
+using System.Windows.Input;
+
+namespace CharityHub.ViewModels.AuthentificationViewModels
 {
     public class LoginViewModel : ViewModelBase
     {
@@ -27,6 +31,16 @@
                 _password = value;
                 OnPropertyChanged(nameof(Password));
             }
+        }
+
+
+        public ICommand BackCommand { get; }
+        public ICommand LoginCommand { get; }
+
+        public LoginViewModel(NavigationStore navigationStore)
+        {
+            BackCommand = new BackCommand(navigationStore);
+            LoginCommand = new LoginCommand(navigationStore, this);
         }
     }
 }

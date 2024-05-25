@@ -3,7 +3,6 @@
     public enum UserType
     {
         Volunteer,
-        CharityOrgaisation,
-        Admin
+        CharityOrgaisation
     }
 }

@@ -1,27 +1,16 @@
 ﻿using CharityHub.Shared;
+using System.ComponentModel.DataAnnotations;
 
 namespace CharityHub.Models.Users
 {
-    abstract class User()
+    public abstract class User()
     {
-        protected string Name { get; set; }
-        protected string Email { get; set; }
-        protected string Password { get; set; }
-        public UserType Type { get; set; }
-        protected DateTime CreatingDate { get; set; }
-
-        //Methods to Get info about user
-        public virtual User GetUser()
-        {
-            return this;
-        }
-
-        internal abstract User GetUser(string id);
-
-        public override string ToString()
-        {
-            return $"My user is: {Name} {Email} {Password} {Type} {CreatingDate}";
-        }
-
+        [Key]
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public UserType UserType { get; set; }
     }
 }

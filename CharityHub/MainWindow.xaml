@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:CharityHub" 
         xmlns:loginpages="clr-namespace:CharityHub.Views.LoginPages" 
         xmlns:mainmenu="clr-namespace:CharityHub.Views.MainMenu" 
+        xmlns:vmslogin ="clr-namespace:CharityHub.ViewModels.AuthentificationViewModels"
+        xmlns:vmsmainmenu ="clr-namespace:CharityHub.ViewModels.MainMenuViewModels"
         mc:Ignorable="d"
         Title="MainWindow" 
         Height="800"
@@ -13,6 +15,24 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <loginpages:WelcomeView DataContext="{Binding CurrentViewModel}"/>
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type vmslogin:WelcomeViewModel}">
+                <loginpages:WelcomeView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmslogin:LoginViewModel}">
+                <loginpages:LoginView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmslogin:SignUpViewModel}">
+                <loginpages:SignUpView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmsmainmenu:MainMenuCharityOrganizationViewModel}">
+                <mainmenu:MainMenuCharityOrganization/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmsmainmenu:MainMenuVolunteerViewModel}">
+                <mainmenu:MainMenuVolunteer/>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <ContentControl Content="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>

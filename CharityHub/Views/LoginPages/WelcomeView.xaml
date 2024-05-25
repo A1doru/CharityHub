@@ -5,10 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CharityHub.Views.LoginPages"
              mc:Ignorable="d"
-             d:Height="800"
-             d:Width="900"
-             HorizontalAlignment="Stretch"
-             VerticalAlignment="Stretch"
+             Height="800"
+             Width="900"
              Background="#CCFFCC">
     <Grid>
         <!-- Logo -->
@@ -27,9 +25,9 @@
                             VerticalAlignment="Bottom"
                             Margin="10,10,10,80">
                     <Button Content="Sign Up" Width="100" Height="40" Background="#00CC66" Foreground="White" Margin="0,20,0,0"
-                            HorizontalAlignment="Center" VerticalAlignment="Bottom" Command="{Binding SignUp}"/>
+                            HorizontalAlignment="Center" VerticalAlignment="Bottom" Command="{Binding SignUpWelcome}"/>
                     <Button Content="Login" Width="100" Height="40" Background="#00CC66" Foreground="White" Margin="30,20,0,0"
-                            HorizontalAlignment="Center" VerticalAlignment="Bottom" Command="{Binding Login}"/>
+                            HorizontalAlignment="Center" VerticalAlignment="Bottom" Command="{Binding LoginWelcome}"/>
                 </StackPanel>
             </Grid>
         </Border>

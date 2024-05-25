@@ -1,20 +1,13 @@
-﻿using CharityHub.Shared;
+﻿using CharityHub.Commands.LoginCommands;
+using CharityHub.Navigation;
+using CharityHub.Shared;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace CharityHub.ViewModels.AuthentificationViewModels
 {
     public class SignUpViewModel : ViewModelBase
     {
-        public SignUpViewModel()
-        {
-            _userTypes = new ObservableCollection<UserType>
-            {
-                UserType.Admin,
-                UserType.CharityOrgaisation,
-                UserType.Volunteer
-            };
-        }
-
         private string _email;
 
         public string Email
@@ -103,6 +96,22 @@ namespace CharityHub.ViewModels.AuthentificationViewModels
                 _selectedUserType = value;
                 OnPropertyChanged(nameof(SelectedUserType));
             }
+        }
+
+
+        public ICommand SignUpButtonCommand { get; }
+        public ICommand BackCommand { get; }
+
+        public SignUpViewModel(NavigationStore navigationStore)
+        {
+            _userTypes = new ObservableCollection<UserType>
+            {
+                UserType.CharityOrgaisation,
+                UserType.Volunteer
+            };
+
+            SignUpButtonCommand = new SignUpCommand(this);
+            BackCommand = new BackCommand(navigationStore);
         }
     }
 }

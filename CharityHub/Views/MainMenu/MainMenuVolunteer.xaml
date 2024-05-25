@@ -1,12 +1,53 @@
 ﻿<UserControl x:Class="CharityHub.Views.MainMenu.MainMenuVolunteer"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:CharityHub.Views.MainMenu"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d"
+             Height="800"
+             Width="900"
+             Background="#CCFFCC"> 
     <Grid>
-            
+        <Grid>
+
+            <Grid Grid.Row="0" Background="#CCFFD9" VerticalAlignment="Top" Height="150">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Width="40" Height="40" Margin="30" BorderBrush="Transparent" Background="{x:Null}">
+                    <Button.Content>
+                        <Path Data="M0,5 30,5 M0,15 30,15 M0,25 30,25" Stroke="Black" StrokeThickness="2" />
+                    </Button.Content>
+                </Button>
+            </Grid>
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0">
+                <Image Source="C:\Users\Danil\source\repos\CharityHub\CharityHub\StaticResources\LogoSmall.png" Height="150" Width="150" />
+            </StackPanel>
+
+            <!--Sign Up box -->
+            <Border Background="#333333" CornerRadius="20" Padding="20"  VerticalAlignment="Top" Width="400" Height="500" Margin="250,175,250,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!--Sign Up Text-->
+                    <TextBlock Text="Hello Danyl" FontSize="36" FontWeight="Bold" Foreground="#00CC66" HorizontalAlignment="Center" Margin="0,20,0,0" Grid.Row="0" />
+
+                    <!--Input Fields-->
+                    <StackPanel Grid.Row="1" VerticalAlignment="Center">
+                        <Button Command="{Binding TaskListingNavCommand}" Content="FIND TASK" Width="200" Height="50" Background="#00CC66" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" />
+                        <Button Content="My Tasks" Width="200" Height="50" Background="#E0E0E0" Foreground="Black" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" />
+                        <Button Content="Completed tasks" Width="200" Height="50" Background="#E0E0E0" Foreground="Black" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
     </Grid>
 </UserControl>

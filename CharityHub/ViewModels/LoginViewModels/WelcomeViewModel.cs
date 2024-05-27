@@ -1,4 +1,4 @@
-﻿using CharityHub.Commands.LoginCommands;
+﻿using CharityHub.Commands;
 using CharityHub.Navigation;
 using System.Windows.Input;
 
@@ -12,8 +12,10 @@ namespace CharityHub.ViewModels.AuthentificationViewModels
 
         public WelcomeViewModel(NavigationStore navigationStore)
         {
-            LoginWelcome = new LoginWelcomeCommand(navigationStore);
-            SignUpWelcome = new SignUpWelcomeCommand(navigationStore);
+            LoginWelcome = new NavigationCommand(navigationStore, 
+                () => new LoginViewModel(navigationStore));
+            SignUpWelcome = new NavigationCommand(navigationStore, 
+                () => new SignUpViewModel(navigationStore));
         }
     }
 }

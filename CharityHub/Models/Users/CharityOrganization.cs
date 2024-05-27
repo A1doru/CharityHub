@@ -2,9 +2,9 @@
 
 namespace CharityHub.Models.Users
 {
-    class CharityOrganization : User
+    internal class CharityOrganization : User
     {
-        public CharityOrganization(string name,string surname, string email, string password)
+        public CharityOrganization(string name, string surname, string email, string password)
         {
             this.Name = name;
             this.Surname = surname;

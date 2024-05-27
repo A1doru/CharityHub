@@ -13,16 +13,17 @@ namespace CharityHub.Commands.LoginCommands
         private readonly NavigationStore _navigationStore;
         private CharityHubDbContext _context;
         private LoginViewModel _loginViewModel;
-
+        private UserFactory _userFactory;
 
         public LoginCommand(NavigationStore navigationStore, LoginViewModel loginViewModel)
         {
             _navigationStore = navigationStore;
-            _context = new CharityHubDbContext();
             _loginViewModel = loginViewModel;
+            _context = new CharityHubDbContext();
+            _userFactory = new UserFactory();
         }
 
-        public async override void Execute(object? parameter)
+        public override async void Execute(object? parameter)
         {
             UserContext userContext = await ValidateUser();
 
@@ -30,17 +31,19 @@ namespace CharityHub.Commands.LoginCommands
             {
                 MessageBox.Show("No such user exists");
             }
-            else if(userContext.Type == "Volunteer")
+            else if (userContext.Type == "Volunteer")
             {
                 //логика создания Singletone обьекта типа Volunteer
+                UserSession.Instance.SetUser(_userFactory.GetUser(Shared.UserType.Volunteer, userContext));
                 _navigationStore.CurrentViewModel = new MainMenuVolunteerViewModel(_navigationStore);
             }
-            else if(userContext.Type == "Charity Organization")
+            else if (userContext.Type == "Charity Organization")
             {
                 //логика создания Sigletone обьекта типа CharityOrganization
+                UserSession.Instance.SetUser(_userFactory.GetUser(Shared.UserType.CharityOrgaisation, userContext));
                 _navigationStore.CurrentViewModel = new MainMenuCharityOrganizationViewModel(_navigationStore);
             }
-        }   
+        }
 
         public async Task<UserContext> ValidateUser()
         {

@@ -1,4 +1,5 @@
-﻿using CharityHub.Commands.LoginCommands;
+﻿using CharityHub.Commands;
+using CharityHub.Commands.LoginCommands;
 using CharityHub.Navigation;
 using CharityHub.Shared;
 using System.Collections.ObjectModel;
@@ -110,8 +111,9 @@ namespace CharityHub.ViewModels.AuthentificationViewModels
                 UserType.Volunteer
             };
 
-            SignUpButtonCommand = new SignUpCommand(this);
-            BackCommand = new BackCommand(navigationStore);
+            SignUpButtonCommand = new SignUpCommand(this, navigationStore);
+            BackCommand = new NavigationCommand(navigationStore, 
+                () => new WelcomeViewModel(navigationStore));
         }
     }
 }

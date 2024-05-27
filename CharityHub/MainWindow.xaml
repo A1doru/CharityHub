@@ -6,8 +6,10 @@
         xmlns:local="clr-namespace:CharityHub" 
         xmlns:loginpages="clr-namespace:CharityHub.Views.LoginPages" 
         xmlns:mainmenu="clr-namespace:CharityHub.Views.MainMenu" 
+        xmlns:creatingtask="clr-namespace:CharityHub.Views.CreatingTask"
         xmlns:vmslogin ="clr-namespace:CharityHub.ViewModels.AuthentificationViewModels"
         xmlns:vmsmainmenu ="clr-namespace:CharityHub.ViewModels.MainMenuViewModels"
+        xmlns:vmscreatingtask="clr-namespace:CharityHub.ViewModels.CreatingTaskViewModels"
         mc:Ignorable="d"
         Title="MainWindow" 
         Height="800"
@@ -30,6 +32,18 @@
             </DataTemplate>
             <DataTemplate DataType="{x:Type vmsmainmenu:MainMenuVolunteerViewModel}">
                 <mainmenu:MainMenuVolunteer/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmscreatingtask:CreatingTaskBaseViewModel}">
+                <creatingtask:CreatingTaskBase/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmscreatingtask:CreatingPhysicalViewModel}">
+                <creatingtask:CreatingPhysical/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmscreatingtask:CreatingFundraisingViewModel}">
+                <creatingtask:CreatingFundraising/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmscreatingtask:CreatingSocialViewModel}">
+                <creatingtask:CreatingSocial/>
             </DataTemplate>
         </Grid.Resources>
 

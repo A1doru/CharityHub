@@ -5,8 +5,56 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CharityHub.Views.CreatingTask"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             Height="800"
+             Width="900"
+             Background="#CCFFCC">
     <Grid>
+
+        <Grid Grid.Row="0" Background="#CCFFCC" VerticalAlignment="Top" Height="150">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
             
+            
+
+            <Button Grid.Column="0" Width="40" Height="40" Margin="30" BorderBrush="Transparent" Background="{x:Null}">
+                <Button.Content>
+                    <Path Data="M0,5 30,5 M0,15 30,15 M0,25 30,25" Stroke="Black" StrokeThickness="2" />
+                </Button.Content>
+            </Button>
+        </Grid>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0">
+            <Image Source="C:\Users\Danil\source\repos\CharityHub\CharityHub\StaticResources\LogoSmall.png" Height="150" Width="150" />
+        </StackPanel>
+
+        <!--Sign Up box -->
+        <Border Background="#333333" CornerRadius="20" Padding="20"  VerticalAlignment="Top" Width="400" Height="500" Margin="250,175,250,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Button Command="{Binding BackCommand}" Content="&#x2190;" FontSize="24" Width="40" Height="40" 
+                        Background="Transparent" Foreground="White" BorderBrush="Transparent"
+                        HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,25,0,0" />
+
+                <!--Sign Up Text-->
+                <TextBlock Text="Select Type" FontSize="36" FontWeight="Bold" Foreground="#00CC66" HorizontalAlignment="Center" Margin="0,20,0,0" Grid.Row="0" />
+
+                <!--Input Fields-->
+                <StackPanel Grid.Row="1" VerticalAlignment="Center">
+                    <ComboBox Width="200" Height="35" Margin="10" ItemsSource="{Binding TaskTypes}" 
+                              SelectedItem="{Binding TaskType}"/>
+                    <Button Command="{Binding NavToPhysicalTaskCommand}" Content="CREATE TASK" Width="200" 
+                            Height="50" Background="#00CC66" 
+                            Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,50,0,0" />
+                    
+                </StackPanel>
+            </Grid>
+        </Border>
     </Grid>
-</UserControl>
+</UserControl> 

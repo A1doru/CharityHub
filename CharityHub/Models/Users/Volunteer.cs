@@ -2,7 +2,7 @@
 
 namespace CharityHub.Models.Users
 {
-    class Volunteer : User
+    internal class Volunteer : User
     {
         public Volunteer(string name, string surname, string email, string password)
         {

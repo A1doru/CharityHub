@@ -4,14 +4,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:mainmenuviewmodels="clr-namespace:CharityHub.ViewModels.MainMenuViewModels" 
-             d:DataContext="{d:DesignInstance Type=mainmenuviewmodels:MainMenuViewModel}"
              mc:Ignorable="d"
              Height="800"
              Width="900"
              Background="#CCFFCC">
     <Grid>
 
-        <Grid Grid.Row="0" Background="#CCFFD9" VerticalAlignment="Top" Height="150">
+        <Grid Grid.Row="0" Background="#CCFFCC" VerticalAlignment="Top" Height="150">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
@@ -38,11 +37,11 @@
                 </Grid.RowDefinitions>
 
                 <!--Sign Up Text-->
-                <TextBlock Text="Hello Danyl" FontSize="36" FontWeight="Bold" Foreground="#00CC66" HorizontalAlignment="Center" Margin="0,20,0,0" Grid.Row="0" />
+                <TextBlock Text="{Binding GreetingMessage}" FontSize="36" FontWeight="Bold" Foreground="#00CC66" HorizontalAlignment="Center" Margin="0,20,0,0" Grid.Row="0" />
 
                 <!--Input Fields-->
                 <StackPanel Grid.Row="1" VerticalAlignment="Center">
-                    <Button Command="{Binding TaskListingNavCommand}" Content="CREATE TASK" Width="200" Height="50" Background="#00CC66" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" />
+                    <Button Command="{Binding TaskCreatingNavCommand}" Content="CREATE TASK" Width="200" Height="50" Background="#00CC66" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" />
                     <Button Content="Active Tasks" Width="200" Height="50" Background="#E0E0E0" Foreground="Black" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" />
                     <Button Content="Closed tasks" Width="200" Height="50" Background="#E0E0E0" Foreground="Black" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" />
                 </StackPanel>

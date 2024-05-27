@@ -11,7 +11,7 @@
     <Grid>
         <Grid>
 
-            <Grid Grid.Row="0" Background="#CCFFD9" VerticalAlignment="Top" Height="150">
+            <Grid Grid.Row="0" Background="#CCFFCC" VerticalAlignment="Top" Height="150">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
@@ -38,7 +38,7 @@
                     </Grid.RowDefinitions>
 
                     <!--Sign Up Text-->
-                    <TextBlock Text="Hello Danyl" FontSize="36" FontWeight="Bold" Foreground="#00CC66" HorizontalAlignment="Center" Margin="0,20,0,0" Grid.Row="0" />
+                    <TextBlock Text="{Binding GreetingMessage}" FontSize="36" FontWeight="Bold" Foreground="#00CC66" HorizontalAlignment="Center" Margin="0,20,0,0" Grid.Row="0" />
 
                     <!--Input Fields-->
                     <StackPanel Grid.Row="1" VerticalAlignment="Center">

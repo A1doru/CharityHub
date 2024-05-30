@@ -3,7 +3,7 @@ using CharityHub.ViewModels;
 
 namespace CharityHub.Commands
 {
-    class NavigationCommand : CommandBase
+    internal class NavigationCommand : CommandBase
     {
         private NavigationStore _navigationStore;
         private Func<ViewModelBase> _createViewModel;

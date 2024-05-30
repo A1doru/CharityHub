@@ -26,8 +26,6 @@ namespace CharityHub.Commands.LoginCommands
             _loginViewModel.PropertyChanged += OnPropertyChanged;
         }
 
-
-
         public override bool CanExecute(object? parameter)
         {
             return !string.IsNullOrEmpty(_loginViewModel.Email) &&
@@ -59,7 +57,7 @@ namespace CharityHub.Commands.LoginCommands
 
         private void OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            if(e.PropertyName == nameof(_loginViewModel.Email) ||
+            if (e.PropertyName == nameof(_loginViewModel.Email) ||
                 e.PropertyName == nameof(_loginViewModel.Password))
             {
                 OnCanExecuteChanged();

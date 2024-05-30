@@ -1,11 +1,12 @@
 ﻿using CharityHub.DBContext;
 using CharityHub.Models.Users;
 using CharityHub.Navigation;
+using Microsoft.EntityFrameworkCore;
 using System.Windows;
 
 namespace CharityHub.Commands.TaskListingCommands
 {
-    class ApplyCommand : CommandBase
+    public class ApplyCommand : CommandBase
     {
         private NavigationStore _navigationStore;
 
@@ -16,21 +17,38 @@ namespace CharityHub.Commands.TaskListingCommands
 
         public override void Execute(object? parameter)
         {
-            if(parameter is TaskContext selcetedTask)
+            Task.Run(async () =>
             {
-                MessageBox.Show(selcetedTask.Title);
-
-                using(var dbContext = new CharityHubDbContext())
+                if (parameter is TaskContext selcetedTask)
                 {
-                    var newApplication = new ApplicationContext
+                    using (var dbContext = new CharityHubDbContext())
                     {
-                        TaskId = selcetedTask.Id,
-                        UserId = UserSession.Instance.CurrentUser.Id,
-                        InProgress = true
-                    };
-                    dbContext.Applications.Add(newApplication);
-                    dbContext.SaveChanges();
+                        var newApplication = new ApplicationContext
+                        {
+                            TaskId = selcetedTask.Id,
+                            UserId = UserSession.Instance.CurrentUser.Id,
+                            InProgress = true
+                        };
+                        if (!await isCreated(newApplication))
+                        {
+                            dbContext.Applications.Add(newApplication);
+                            dbContext.SaveChanges();
+                        }
+                        else
+                        {
+                            MessageBox.Show("You already applied for this task");
+                        }
+                    }
                 }
+            }).Wait();
+        }
+
+        private async Task<bool> isCreated(ApplicationContext applicationContext)
+        {
+            using (var dbContext = new CharityHubDbContext())
+            {
+                return await dbContext.Applications.AnyAsync(a => a.UserId == UserSession.Instance.CurrentUser.Id &&
+                                                                  a.TaskId == applicationContext.TaskId);
             }
         }
     }

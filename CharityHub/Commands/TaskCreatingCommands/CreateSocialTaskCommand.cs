@@ -21,8 +21,8 @@ namespace CharityHub.Commands.TaskCreatingCommands
         public override bool CanExecute(object? parameter)
         {
             return !string.IsNullOrEmpty(_creatingSocialViewModel.Title) &&
-                   !string.IsNullOrEmpty(_creatingSocialViewModel.Description) && 
-                   !string.IsNullOrEmpty(_creatingSocialViewModel.Link) && 
+                   !string.IsNullOrEmpty(_creatingSocialViewModel.Description) &&
+                   !string.IsNullOrEmpty(_creatingSocialViewModel.Link) &&
                    _creatingSocialViewModel.DeadlineDate >= DateTime.Now &&
                    base.CanExecute(parameter);
         }
@@ -41,7 +41,7 @@ namespace CharityHub.Commands.TaskCreatingCommands
 
         private void OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            if(e.PropertyName == nameof(CreatingSocialViewModel.Title) ||
+            if (e.PropertyName == nameof(CreatingSocialViewModel.Title) ||
                 e.PropertyName == nameof(CreatingSocialViewModel.Description) ||
                 e.PropertyName == nameof(CreatingSocialViewModel.Link) ||
                 e.PropertyName == nameof(CreatingSocialViewModel.DeadlineDate))

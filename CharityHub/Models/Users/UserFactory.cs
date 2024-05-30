@@ -43,7 +43,7 @@ namespace CharityHub.Models.Users
             }
             else if (userType == UserType.CharityOrgaisation)
             {
-                newUser = new CharityOrganization(userContext.Id,userContext.Name, userContext.Surname,
+                newUser = new CharityOrganization(userContext.Id, userContext.Name, userContext.Surname,
                     userContext.Email, userContext.Password);
             }
             else

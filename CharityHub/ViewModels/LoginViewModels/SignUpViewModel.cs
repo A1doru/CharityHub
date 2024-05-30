@@ -99,7 +99,6 @@ namespace CharityHub.ViewModels.AuthentificationViewModels
             }
         }
 
-
         public ICommand SignUpButtonCommand { get; }
         public ICommand BackCommand { get; }
 
@@ -112,7 +111,7 @@ namespace CharityHub.ViewModels.AuthentificationViewModels
             };
 
             SignUpButtonCommand = new SignUpCommand(this, navigationStore);
-            BackCommand = new NavigationCommand(navigationStore, 
+            BackCommand = new NavigationCommand(navigationStore,
                 () => new WelcomeViewModel(navigationStore));
         }
     }

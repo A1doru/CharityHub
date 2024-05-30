@@ -21,7 +21,7 @@ namespace CharityHub.ViewModels.TaskListingViewModels
         {
             try
             {
-                var tasks = await dbContext.Tasks.Where(t => t.CreatorId == UserSession.Instance.CurrentUser.Id && 
+                var tasks = await dbContext.Tasks.Where(t => t.CreatorId == UserSession.Instance.CurrentUser.Id &&
                                                              t.IsClosed == false).ToListAsync();
                 Tasks.Clear();
                 foreach (var task in tasks)

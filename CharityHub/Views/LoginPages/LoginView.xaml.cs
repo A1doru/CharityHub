@@ -1,6 +1,5 @@
 ﻿using System.Windows.Controls;
 
-
 namespace CharityHub.Views.LoginPages
 {
     /// <summary>

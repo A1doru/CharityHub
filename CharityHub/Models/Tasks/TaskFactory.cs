@@ -1,5 +1,4 @@
-﻿
-using CharityHub.DBContext;
+﻿using CharityHub.DBContext;
 using System.Windows;
 
 namespace CharityHub.Models.Tasks
@@ -7,7 +6,6 @@ namespace CharityHub.Models.Tasks
     public class TaskFactory : ITaskFactory
     {
         private TaskContext _taskContext { get; set; }
-
 
         public Fundraising CreateFundraisingTask(string title, string description, DateTime deadlineDate, string bankId, int SumAmount)
         {
@@ -53,12 +51,10 @@ namespace CharityHub.Models.Tasks
             return newTask;
         }
 
-
         private void AddTaskToDB(Task task)
         {
             var taskBuilder = new TaskBuilder();
             var taskContext = taskBuilder.WithTask(task).Build();
-
 
             if (task != null)
             {

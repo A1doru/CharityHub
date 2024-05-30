@@ -5,9 +5,10 @@ using System.Windows.Input;
 
 namespace CharityHub.ViewModels.CreatingTaskViewModels
 {
-    class CreatingPhysicalViewModel : ViewModelBase
+    internal class CreatingPhysicalViewModel : ViewModelBase
     {
         private string _title;
+
         public string Title
         {
             get
@@ -22,6 +23,7 @@ namespace CharityHub.ViewModels.CreatingTaskViewModels
         }
 
         private string _description;
+
         public string Description
         {
             get
@@ -36,6 +38,7 @@ namespace CharityHub.ViewModels.CreatingTaskViewModels
         }
 
         private string _location;
+
         public string Location
         {
             get
@@ -50,8 +53,9 @@ namespace CharityHub.ViewModels.CreatingTaskViewModels
         }
 
         private DateTime _deadlineDate;
+
         public DateTime DeadlineDate
-        {   
+        {
             get
             {
                 return _deadlineDate;
@@ -64,6 +68,7 @@ namespace CharityHub.ViewModels.CreatingTaskViewModels
         }
 
         private DateTime _date;
+
         public DateTime Date
         {
             get

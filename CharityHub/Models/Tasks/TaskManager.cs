@@ -9,7 +9,7 @@
             _taskFactory = taskFactory;
         }
 
-        public Fundraising CreateFundraisingTask(string title, string description, DateTime dueDate,string bankId ,int targetAmount)
+        public Fundraising CreateFundraisingTask(string title, string description, DateTime dueDate, string bankId, int targetAmount)
         {
             return _taskFactory.CreateFundraisingTask(title, description, dueDate, bankId, targetAmount);
         }

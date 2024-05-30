@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace CharityHub.ViewModels 
+namespace CharityHub.ViewModels
 {
     public class ViewModelBase : INotifyPropertyChanged
     {

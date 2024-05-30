@@ -1,7 +1,6 @@
 ﻿using CharityHub.Navigation;
 using CharityHub.ViewModels;
 using CharityHub.ViewModels.AuthentificationViewModels;
-using CharityHub.ViewModels.MainMenuViewModels;
 using System.Windows;
 
 namespace CharityHub
@@ -31,5 +30,4 @@ namespace CharityHub
             base.OnStartup(e);
         }
     }
-
 }

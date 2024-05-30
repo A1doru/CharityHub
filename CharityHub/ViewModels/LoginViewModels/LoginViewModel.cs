@@ -34,13 +34,12 @@ namespace CharityHub.ViewModels.AuthentificationViewModels
             }
         }
 
-
         public ICommand BackCommand { get; }
         public ICommand LoginCommand { get; }
 
         public LoginViewModel(NavigationStore navigationStore)
         {
-            BackCommand = new NavigationCommand(navigationStore, 
+            BackCommand = new NavigationCommand(navigationStore,
                 () => new WelcomeViewModel(navigationStore));
             LoginCommand = new LoginCommand(navigationStore, this);
         }

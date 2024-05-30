@@ -9,10 +9,9 @@ namespace CharityHub.ViewModels.MainMenuViewModels
 {
     public class MainMenuCharityOrganizationViewModel : ViewModelBase
     {
-
         public string Name
         {
-            get 
+            get
             {
                 return UserSession.Instance.CurrentUser.Name;
             }
@@ -32,7 +31,7 @@ namespace CharityHub.ViewModels.MainMenuViewModels
 
         public MainMenuCharityOrganizationViewModel(NavigationStore navigationStore)
         {
-            TaskCreatingNavCommand = new NavigationCommand(navigationStore, 
+            TaskCreatingNavCommand = new NavigationCommand(navigationStore,
                 () => new CreatingTaskBaseViewModel(navigationStore));
             NavToOpenedTask = new NavigationCommand(navigationStore,
                 () => new OrganizationTaskOpenedViewModel(navigationStore));

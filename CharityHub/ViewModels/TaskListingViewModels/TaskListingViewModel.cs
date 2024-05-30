@@ -1,6 +1,8 @@
-﻿using CharityHub.Commands.TaskListingCommands;
+﻿using CharityHub.Commands;
+using CharityHub.Commands.TaskListingCommands;
 using CharityHub.DBContext;
 using CharityHub.Navigation;
+using CharityHub.ViewModels.MainMenuViewModels;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -31,14 +33,34 @@ namespace CharityHub.ViewModels.TaskListingViewModels
             }
         }
 
-        public ICommand ApplyCommand { get; }
+        public ObservableCollection<KeyValuePair<string, ISortStrategy>> SortMethods { get; set; }
+
+        private KeyValuePair<string, ISortStrategy> _selectedSortMethod;
+        public KeyValuePair<string, ISortStrategy> SelectedSortMethod
+        {
+            get
+            {
+                return _selectedSortMethod;
+            }
+            set
+            {
+                _selectedSortMethod = value;
+                OnPropertyChanged(nameof(SelectedSortMethod));
+            }
+        }
+
+
+        public ICommand BackCommand { get; }
+
+        public ICommand LearnModeCommand { get; }
 
         public TaskListingViewModel(NavigationStore navigationStore)
         {
             dbContext = new CharityHubDbContext();
             Tasks = new ObservableCollection<TaskContext>();
             LoadTasks();
-            ApplyCommand = new ApplyCommand(navigationStore);
+            BackCommand = new NavigationCommand(navigationStore, () => new MainMenuVolunteerViewModel(navigationStore));
+            LearnModeCommand = new LearnMoreCommand(navigationStore);
         }
     }
 }

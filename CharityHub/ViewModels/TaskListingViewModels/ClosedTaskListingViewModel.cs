@@ -1,13 +1,13 @@
-﻿using CharityHub.Commands.TaskListingCommands;
-using CharityHub.Commands;
+﻿using CharityHub.Commands;
+using CharityHub.Commands.TaskListingCommands;
 using CharityHub.DBContext;
 using CharityHub.Models.Users;
 using CharityHub.Navigation;
-using System.Collections.ObjectModel;
-using System.Windows.Input;
-using System.Windows;
 using CharityHub.ViewModels.MainMenuViewModels;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Input;
 
 namespace CharityHub.ViewModels.TaskListingViewModels
 {

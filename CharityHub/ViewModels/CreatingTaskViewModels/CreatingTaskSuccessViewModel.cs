@@ -10,9 +10,7 @@ namespace CharityHub.ViewModels.CreatingTaskViewModels
         private NavigationStore _navigationStore;
         private Models.Tasks.Task _newTask;
 
-
         public ICommand BackToMainMenuCommand { get; }
-
 
         public CreatingTaskSuccessViewModel(NavigationStore navigationStore)
         {

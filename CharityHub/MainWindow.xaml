@@ -3,85 +3,99 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CharityHub" 
-        xmlns:loginpages="clr-namespace:CharityHub.Views.LoginPages" 
-        xmlns:mainmenu="clr-namespace:CharityHub.Views.MainMenu" 
+        xmlns:local="clr-namespace:CharityHub"
+        xmlns:loginpages="clr-namespace:CharityHub.Views.LoginPages"
+        xmlns:mainmenu="clr-namespace:CharityHub.Views.MainMenu"
         xmlns:creatingtask="clr-namespace:CharityHub.Views.CreatingTask"
         xmlns:tasklisting="clr-namespace:CharityHub.Views.TaskListing"
+        xmlns:taskapply="clr-namespace:CharityHub.Views.TaskApply"
         xmlns:vmslogin ="clr-namespace:CharityHub.ViewModels.AuthentificationViewModels"
         xmlns:vmsmainmenu ="clr-namespace:CharityHub.ViewModels.MainMenuViewModels"
         xmlns:vmscreatingtask="clr-namespace:CharityHub.ViewModels.CreatingTaskViewModels"
         xmlns:vmstasklisting="clr-namespace:CharityHub.ViewModels.TaskListingViewModels"
+        xmlns:vmsapplytask="clr-namespace:CharityHub.ViewModels.TaskApplyViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" 
+        Title="MainWindow"
         Height="800"
-        Width="900"        
+        Width="900"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.Resources>
             <DataTemplate DataType="{x:Type vmslogin:WelcomeViewModel}">
-                <loginpages:WelcomeView/>
+                <loginpages:WelcomeView />
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type vmslogin:LoginViewModel}">
-                <loginpages:LoginView/>
+                <loginpages:LoginView />
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type vmslogin:SignUpViewModel}">
-                <loginpages:SignUpView/>
+                <loginpages:SignUpView />
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type vmsmainmenu:MainMenuCharityOrganizationViewModel}">
-                <mainmenu:MainMenuCharityOrganization/>
+                <mainmenu:MainMenuCharityOrganization />
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type vmsmainmenu:MainMenuVolunteerViewModel}">
-                <mainmenu:MainMenuVolunteer/>
+                <mainmenu:MainMenuVolunteer />
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type vmscreatingtask:CreatingTaskBaseViewModel}">
-                <creatingtask:CreatingTaskBase/>
+                <creatingtask:CreatingTaskBase />
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type vmscreatingtask:CreatingPhysicalViewModel}">
-                <creatingtask:CreatingPhysical/>
+                <creatingtask:CreatingPhysical />
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type vmscreatingtask:CreatingFundraisingViewModel}">
-                <creatingtask:CreatingFundraising/>
+                <creatingtask:CreatingFundraising />
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type vmscreatingtask:CreatingSocialViewModel}">
-                <creatingtask:CreatingSocial/>
+                <creatingtask:CreatingSocial />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmscreatingtask:CreatingTaskSuccessViewModel}">
-                <creatingtask:CreatingTaskSuccess/>
+                <creatingtask:CreatingTaskSuccess />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmstasklisting:TaskListingViewModel}">
-                <tasklisting:TaskListingView/>
+                <tasklisting:TaskListingView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmstasklisting:ClosedTaskListingViewModel}">
-                <tasklisting:ClosedTaskListingView/>
+                <tasklisting:ClosedTaskListingView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmstasklisting:CompletedTaskViewModel}">
-                <tasklisting:CompletedTaskView/>
+                <tasklisting:CompletedTaskView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmstasklisting:OrganizationTaskOpenedViewModel}">
-                <tasklisting:OrganizationTaskOpenedView/>
+                <tasklisting:OrganizationTaskOpenedView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmstasklisting:VolunteerTaskInProgressViewModel}">
-                <tasklisting:VolunteerTaskInProgressView/>
+                <tasklisting:VolunteerTaskInProgressView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmsapplytask:FundraisingApplyViewModel}">
+                <taskapply:FundraisingApplyView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmsapplytask:PhysicalActivityApplyViewModel}">
+                <taskapply:PhysicalActivityApplyView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmsapplytask:SocialActivityApplyViewModel}">
+                <taskapply:SocialActivityApplyView />
             </DataTemplate>
 
         </Grid.Resources>
 
-        <ContentControl Content="{Binding CurrentViewModel}"/>
+        <ContentControl Content="{Binding CurrentViewModel}" />
     </Grid>
 </Window>

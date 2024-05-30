@@ -6,53 +6,54 @@ using CharityHub.ViewModels.MainMenuViewModels;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
-
 namespace CharityHub.ViewModels.CreatingTaskViewModels
 {
-    class CreatingTaskBaseViewModel : ViewModelBase
+    internal class CreatingTaskBaseViewModel : ViewModelBase
     {
-		private ObservableCollection<TaskType> _taskTypes;
-		public ObservableCollection<TaskType> TaskTypes
-		{
-			get
-			{
-				return _taskTypes;
-			}
-			set
-			{
-				_taskTypes = value;
-				OnPropertyChanged(nameof(TaskTypes));
-			}
-		}
+        private ObservableCollection<TaskType> _taskTypes;
 
-		private TaskType _taskType;
-		public TaskType TaskType
-		{
-			get
-			{
-				return _taskType;
-			}
-			set
-			{
-				_taskType = value;
-				OnPropertyChanged(nameof(TaskType));
-			}
-		}
+        public ObservableCollection<TaskType> TaskTypes
+        {
+            get
+            {
+                return _taskTypes;
+            }
+            set
+            {
+                _taskTypes = value;
+                OnPropertyChanged(nameof(TaskTypes));
+            }
+        }
 
-		public ICommand BackCommand { get; }
-		public ICommand CreatingTaskSelectorCommand { get; }
+        private TaskType _taskType;
+
+        public TaskType TaskType
+        {
+            get
+            {
+                return _taskType;
+            }
+            set
+            {
+                _taskType = value;
+                OnPropertyChanged(nameof(TaskType));
+            }
+        }
+
+        public ICommand BackCommand { get; }
+        public ICommand CreatingTaskSelectorCommand { get; }
 
         public CreatingTaskBaseViewModel(NavigationStore navigationStore)
         {
-			_taskTypes = new ObservableCollection<TaskType> 
-			{ 
-				TaskType.PhysicalActivity, 
-				TaskType.SocialActivity, 
-				TaskType.Fundraising 
-			};
+            _taskTypes = new ObservableCollection<TaskType>
+            {
+                TaskType.PhysicalActivity,
+                TaskType.SocialActivity,
+                TaskType.Fundraising
+            };
 
             CreatingTaskSelectorCommand = new CreatingTaskSelectorCommand(this, navigationStore);
-			BackCommand = new NavigationCommand(navigationStore, () => new MainMenuCharityOrganizationViewModel(navigationStore));
+            BackCommand = new NavigationCommand(navigationStore, () => new MainMenuCharityOrganizationViewModel(navigationStore));
         }
     }
 }

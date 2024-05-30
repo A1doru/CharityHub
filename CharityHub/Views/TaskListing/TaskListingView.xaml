@@ -38,14 +38,11 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0" Orientation="Horizontal">
-                        <TextBox VerticalAlignment="Center" BorderBrush="#00CC66"
-                                 Background="#333333" Margin="0,0,5,0"
-                                 Width="100" Foreground="White" />
-                        <Button Content="Search" Width="40" Height="20" Margin="0,0,0,0"
-                                BorderBrush="Black" />
-                    </StackPanel>
-                    <Button Grid.Column="1" Content="Search" Width="70" />
+
+                    <ComboBox x:Name="SortMethodComboBox" SelectedIndex="0" 
+                              ItemsSource="{Binding SortMethods}" DisplayMemberPath="Name"
+                              
+                              Grid.Column="1" Width="70" />
                 </Grid>
 
                 <ListView Grid.Row="2" Background="#333333" ItemsSource="{Binding Tasks}" Height="380">
@@ -66,9 +63,9 @@
                                         <TextBlock Grid.Row="1" Text="{Binding Description}" FontSize="14"
                                                    Foreground="#666" Margin="0,5,0,10" HorizontalAlignment="Left" />
 
-                                        <Button Command="{Binding DataContext.ApplyCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
+                                        <Button Command="{Binding DataContext.LearnModeCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
                                                     CommandParameter="{Binding}" Grid.Row="2"
-                                                    Content="Apply" Width="100" Background="#28A745"
+                                                    Content="Learn more" Width="100" Background="#28A745"
                                                     Foreground="White" />
                                     </Grid>
                                 </StackPanel>

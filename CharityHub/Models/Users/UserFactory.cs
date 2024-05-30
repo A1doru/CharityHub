@@ -38,12 +38,12 @@ namespace CharityHub.Models.Users
         {
             if (userType == UserType.Volunteer)
             {
-                newUser = new Volunteer(userContext.Name, userContext.Surname,
+                newUser = new Volunteer(userContext.Id, userContext.Name, userContext.Surname,
                     userContext.Email, userContext.Password);
             }
             else if (userType == UserType.CharityOrgaisation)
             {
-                newUser = new CharityOrganization(userContext.Name, userContext.Surname,
+                newUser = new CharityOrganization(userContext.Id,userContext.Name, userContext.Surname,
                     userContext.Email, userContext.Password);
             }
             else

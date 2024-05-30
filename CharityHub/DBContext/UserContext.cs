@@ -1,5 +1,4 @@
 ﻿using CharityHub.Models.Users;
-using CharityHub.Shared;
 using System.ComponentModel.DataAnnotations;
 
 namespace CharityHub.DBContext
@@ -8,6 +7,7 @@ namespace CharityHub.DBContext
     {
         [Key]
         public int Id { get; set; }
+
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }

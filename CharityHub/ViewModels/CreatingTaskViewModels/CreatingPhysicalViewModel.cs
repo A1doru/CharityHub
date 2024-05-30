@@ -49,13 +49,43 @@ namespace CharityHub.ViewModels.CreatingTaskViewModels
             }
         }
 
+        private DateTime _deadlineDate;
+        public DateTime DeadlineDate
+        {   
+            get
+            {
+                return _deadlineDate;
+            }
+            set
+            {
+                _deadlineDate = value;
+                OnPropertyChanged(nameof(DeadlineDate));
+            }
+        }
+
+        private DateTime _date;
+        public DateTime Date
+        {
+            get
+            {
+                return _date;
+            }
+            set
+            {
+                _date = value;
+                OnPropertyChanged(nameof(Date));
+            }
+        }
+
         public ICommand BackCommand { get; }
         public ICommand CreatePhysicalTaskCommand { get; }
 
         public CreatingPhysicalViewModel(NavigationStore navigationStore)
         {
+            _date = DateTime.Now;
+            _deadlineDate = DateTime.Now;
             BackCommand = new NavigationCommand(navigationStore, () => new CreatingTaskBaseViewModel(navigationStore));
-            CreatePhysicalTaskCommand = new CreatePhysicalTaskCommand();
+            CreatePhysicalTaskCommand = new CreatePhysicalTaskCommand(this, navigationStore);
         }
     }
 }

@@ -3,11 +3,11 @@
 namespace CharityHub.Views.TaskListing
 {
     /// <summary>
-    /// Interaction logic for TaskListingView.xaml
+    /// Interaction logic for CompletedTaskView.xaml
     /// </summary>
-    public partial class TaskListingView : UserControl
+    public partial class CompletedTaskView : UserControl
     {
-        public TaskListingView()
+        public CompletedTaskView()
         {
             InitializeComponent();
         }

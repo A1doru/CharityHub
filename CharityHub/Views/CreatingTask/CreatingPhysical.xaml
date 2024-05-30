@@ -46,20 +46,23 @@
                     
                     <TextBlock Text="Location adress" FontSize="18" Foreground="White" 
                                Margin="30,10,0,5"/>
-                    <TextBox Text=""  
+                    <TextBox Text="{Binding Location, UpdateSourceTrigger=PropertyChanged}"  
                              Width="300" Height="25" Background="Transparent" 
                              BorderBrush="#00CC66" Foreground="White"/>
 
                     <TextBlock Text="Set date of the event" FontSize="18" Foreground="White" 
                                Margin="30,10,0,5"/>
-                    <DatePicker Height="25" Margin="30,10,30,5" BorderBrush="#00CC66"/>
+                    <DatePicker SelectedDate="{Binding DeadlineDate, UpdateSourceTrigger=PropertyChanged}" 
+                                Height="25" Margin="30,10,30,5" BorderBrush="#00CC66"/>
 
                     <TextBlock Text="Set deadline for application" FontSize="18" Foreground="White" 
                                Margin="30,10,0,5"/>
-                    <DatePicker Height="25" Margin="30,10,30,5" BorderBrush="#00CC66"/>
+                    <DatePicker SelectedDate="{Binding Date}" Height="25" 
+                                Margin="30,10,30,5" BorderBrush="#00CC66"/>
 
-                    <Button Command="{Binding CreatePhysicalTaskCommand}" Content="CREATE TASK" Width="200" 
-                            Height="50" Background="#00CC66" 
+                    <Button Command="{Binding CreatePhysicalTaskCommand, UpdateSourceTrigger=PropertyChanged}" 
+                            Content="CREATE TASK" Width="180" 
+                            Height="40" Background="#00CC66" 
                             Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,30,0,0" />
                     
                 </StackPanel>

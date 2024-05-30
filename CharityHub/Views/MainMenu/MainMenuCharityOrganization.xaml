@@ -16,7 +16,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Width="40" Height="40" Margin="30" BorderBrush="Transparent" Background="{x:Null}">
+            <Button Grid.Column="0" Width="40" Height="40" Margin="30" 
+                    BorderBrush="Transparent" Background="{x:Null}">
                 <Button.Content>
                     <Path Data="M0,5 30,5 M0,15 30,15 M0,25 30,25" Stroke="Black" StrokeThickness="2" />
                 </Button.Content>
@@ -24,11 +25,13 @@
         </Grid>
 
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0">
-            <Image Source="C:\Users\Danil\source\repos\CharityHub\CharityHub\StaticResources\LogoSmall.png" Height="150" Width="150" />
+            <Image Source="C:\Users\Danil\source\repos\CharityHub\CharityHub\StaticResources\LogoSmall.png" 
+                   Height="150" Width="150" />
         </StackPanel>
 
         <!--Sign Up box -->
-        <Border Background="#333333" CornerRadius="20" Padding="20"  VerticalAlignment="Top" Width="400" Height="500" Margin="250,175,250,0">
+        <Border Background="#333333" CornerRadius="20" Padding="20"  VerticalAlignment="Top" 
+                Width="400" Height="500" Margin="250,175,250,0">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -37,13 +40,20 @@
                 </Grid.RowDefinitions>
 
                 <!--Sign Up Text-->
-                <TextBlock Text="{Binding GreetingMessage}" FontSize="36" FontWeight="Bold" Foreground="#00CC66" HorizontalAlignment="Center" Margin="0,20,0,0" Grid.Row="0" />
+                <TextBlock Text="{Binding GreetingMessage}" FontSize="36" FontWeight="Bold" 
+                           Foreground="#00CC66" HorizontalAlignment="Center" Margin="0,20,0,0" Grid.Row="0" />
 
                 <!--Input Fields-->
                 <StackPanel Grid.Row="1" VerticalAlignment="Center">
-                    <Button Command="{Binding TaskCreatingNavCommand}" Content="CREATE TASK" Width="200" Height="50" Background="#00CC66" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" />
-                    <Button Content="Active Tasks" Width="200" Height="50" Background="#E0E0E0" Foreground="Black" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" />
-                    <Button Content="Closed tasks" Width="200" Height="50" Background="#E0E0E0" Foreground="Black" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" />
+                    <Button Command="{Binding TaskCreatingNavCommand}" Content="CREATE TASK" 
+                            Width="200" Height="50" Background="#00CC66" Foreground="White" 
+                            FontSize="16" FontWeight="Bold" Margin="0,10,0,0" />
+                    <Button Command="{Binding NavToOpenedTask}" Content="Active Tasks" 
+                            Width="200" Height="50" Background="#E0E0E0" Foreground="Black" 
+                            FontSize="16" FontWeight="Bold" Margin="0,10,0,0" />
+                    <Button Command="{Binding NavToClosedTask}" Content="Closed tasks" 
+                            Width="200" Height="50" Background="#E0E0E0" Foreground="Black" 
+                            FontSize="16" FontWeight="Bold" Margin="0,10,0,0" />
                 </StackPanel>
             </Grid>
         </Border>

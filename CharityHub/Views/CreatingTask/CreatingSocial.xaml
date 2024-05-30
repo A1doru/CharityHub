@@ -5,8 +5,64 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CharityHub.Views.CreatingTask"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+            Height="800" 
+            Width="900">
+    <Grid Background="#CCFFCC">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0">
+            <Image Source="C:\Users\Danil\source\repos\CharityHub\CharityHub\StaticResources\LogoSmall.png"
+                  Height="150" Width="150" />
+        </StackPanel>
+
+        <Border Background="#333333" CornerRadius="20" Padding="20" VerticalAlignment="Top" 
+               Width="400" Height="550" Margin="250,175,250,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Button Command="{Binding BackCommand}" Content="&#x2190;" FontSize="24" Width="40" Height="40" 
+                       Background="Transparent" Foreground="White" BorderBrush="Transparent"
+                       HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,25,0,0" />
+
+                <!--Sign Up Text-->
+                <TextBlock Text="Fill in the form" FontSize="36" FontWeight="Bold" Foreground="#00CC66" 
+                          HorizontalAlignment="Center" Margin="0,20,0,0" Grid.Row="0" />
+
+                <!--Input Fields-->
+                <StackPanel Grid.Row="1" VerticalAlignment="Center">
+
+                    <TextBlock Text="Task title" FontSize="18" Foreground="White" 
+                              Margin="30,10,0,5"/>
+                    <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"  
+                            Width="300" Height="25" Background="Transparent" 
+                            BorderBrush="#00CC66" Foreground="White"/>
+
+                    <TextBlock Text="Description" FontSize="18" Foreground="White" 
+                              Margin="30,10,0,5"/>
+                    <TextBox Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"  
+                            Width="300" Height="25" Background="Transparent" 
+                            BorderBrush="#00CC66" Foreground="White"/>
+
+                    <TextBlock Text="Link" FontSize="18" Foreground="White" 
+                              Margin="30,10,0,5"/>
+                    <TextBox Text="{Binding Link, UpdateSourceTrigger=PropertyChanged}"  
+                            Width="300" Height="25" Background="Transparent" 
+                            BorderBrush="#00CC66" Foreground="White"/>
+
+                    <TextBlock Text="Set deadline of task" FontSize="18" Foreground="White" 
+                              Margin="30,10,0,5"/>
+                    <DatePicker SelectedDate="{Binding DeadlineDate, UpdateSourceTrigger=PropertyChanged}" 
+                               Height="25" Margin="30,10,30,5" BorderBrush="#00CC66"/>
+
+                    <Button Command="{Binding CreateSocialTaskCommand, UpdateSourceTrigger=PropertyChanged}" 
+                           Content="CREATE TASK" Width="180" 
+                           Height="40" Background="#00CC66" 
+                           Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,30,0,0" />
+
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>       
 </UserControl>

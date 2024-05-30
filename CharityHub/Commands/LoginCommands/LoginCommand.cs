@@ -4,6 +4,7 @@ using CharityHub.Navigation;
 using CharityHub.ViewModels.AuthentificationViewModels;
 using CharityHub.ViewModels.MainMenuViewModels;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
 using System.Windows;
 
 namespace CharityHub.Commands.LoginCommands
@@ -21,6 +22,17 @@ namespace CharityHub.Commands.LoginCommands
             _loginViewModel = loginViewModel;
             _context = new CharityHubDbContext();
             _userFactory = new UserFactory();
+
+            _loginViewModel.PropertyChanged += OnPropertyChanged;
+        }
+
+
+
+        public override bool CanExecute(object? parameter)
+        {
+            return !string.IsNullOrEmpty(_loginViewModel.Email) &&
+                !string.IsNullOrEmpty(_loginViewModel.Password) &&
+                base.CanExecute(parameter);
         }
 
         public override async void Execute(object? parameter)
@@ -42,6 +54,15 @@ namespace CharityHub.Commands.LoginCommands
                 //логика создания Sigletone обьекта типа CharityOrganization
                 UserSession.Instance.SetUser(_userFactory.GetUser(Shared.UserType.CharityOrgaisation, userContext));
                 _navigationStore.CurrentViewModel = new MainMenuCharityOrganizationViewModel(_navigationStore);
+            }
+        }
+
+        private void OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
+        {
+            if(e.PropertyName == nameof(_loginViewModel.Email) ||
+                e.PropertyName == nameof(_loginViewModel.Password))
+            {
+                OnCanExecuteChanged();
             }
         }
 

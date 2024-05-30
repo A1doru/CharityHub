@@ -39,11 +39,8 @@ namespace CharityHub.ViewModels.CreatingTaskViewModels
 			}
 		}
 
-
-
-
 		public ICommand BackCommand { get; }
-		public ICommand NavToPhysicalTaskCommand { get; }
+		public ICommand CreatingTaskSelectorCommand { get; }
 
         public CreatingTaskBaseViewModel(NavigationStore navigationStore)
         {
@@ -54,7 +51,7 @@ namespace CharityHub.ViewModels.CreatingTaskViewModels
 				TaskType.Fundraising 
 			};
 
-			NavToPhysicalTaskCommand = new NavToPhysicalTaskCommand(this, navigationStore);
+            CreatingTaskSelectorCommand = new CreatingTaskSelectorCommand(this, navigationStore);
 			BackCommand = new NavigationCommand(navigationStore, () => new MainMenuCharityOrganizationViewModel(navigationStore));
         }
     }

@@ -1,6 +1,7 @@
-﻿using CharityHub.Commands.MainMenuCommands;
+﻿using CharityHub.Commands;
 using CharityHub.Models.Users;
 using CharityHub.Navigation;
+using CharityHub.ViewModels.TaskListingViewModels;
 using System.Windows.Input;
 
 namespace CharityHub.ViewModels.MainMenuViewModels
@@ -23,15 +24,15 @@ namespace CharityHub.ViewModels.MainMenuViewModels
             }
         }
 
-        private NavigationStore _navigationStore;
+        public ICommand NavToActiveTask { get; }
+        public ICommand NavToCompletedTask { get; }
+        public ICommand TaskListingNavCommand { get; }
 
         public MainMenuVolunteerViewModel(NavigationStore navigationStore)
         {
-            _navigationStore = navigationStore;
-            TaskListingNavCommand = new TaskListingNavCommand();
+            TaskListingNavCommand = new NavigationCommand(navigationStore, () => new TaskListingViewModel(navigationStore));
+            NavToCompletedTask = new NavigationCommand(navigationStore, () => new CompletedTaskViewModel(navigationStore));
+            NavToActiveTask = new NavigationCommand(navigationStore, () => new VolunteerTaskInProgressViewModel());
         }
-
-        public ICommand TaskListingNavCommand { get; }
-
     }
 }

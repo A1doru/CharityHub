@@ -1,17 +1,17 @@
-﻿using CharityHub.Models.Users;
+﻿using CharityHub.Shared;
 
 namespace CharityHub.Models.Tasks
 {
-    abstract class Task
+    public abstract class Task
     {
         public  int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public User Creator { get; set; }
-        public DateTime CreationDate { get; set; }
+        public int CreatorId { get; set; }
+
+        public DateTime CreationDate = DateTime.Now;
         public DateTime DeadlineDate { get; set; }
-
-
-        //public abstract void CreateTask(string title, string description, DateTime deadlineDate);
+        public TaskType Type { get; set; }
+        public bool IsClosed { get; set; }
     }
 }
